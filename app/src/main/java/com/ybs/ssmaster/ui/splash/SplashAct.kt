@@ -22,7 +22,6 @@ class SplashAct : AppBaseAct<ActSplashBinding, SplashVm>() {
 
     override fun getLayoutBinding() = ActSplashBinding.inflate(layoutInflater)
 
-
     override fun getPermissionArray() = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.ACCESS_NETWORK_STATE,
@@ -49,19 +48,15 @@ class SplashAct : AppBaseAct<ActSplashBinding, SplashVm>() {
 
 
     override fun initView() {
-
         val n = getStr(KEY_NAME)
         if (!TextUtils.isEmpty(n)) {
             login(n, getStr(KEY_PSW))
         }
-
         binding.btnLogin.setOnClickListener {
             val name = binding.etName.text.toString()
             val psw = binding.etPsw.text.toString()
-
 //            val name = "admin"
 //            val psw = "admin123"
-
             if (TextUtils.isEmpty(name) || TextUtils.isEmpty(psw)) {
                 ToastUtils.showLong("请输入正确的用户名和密码！")
                 return@setOnClickListener
@@ -72,14 +67,6 @@ class SplashAct : AppBaseAct<ActSplashBinding, SplashVm>() {
     }
 
     private fun login(name: String, psw: String) {
-//        val t = 1628496532L + 30 * 24 * 60 * 60L
-//        val c = System.currentTimeMillis() / 1000
-//
-//        if (c > t) {
-//            ToastUtils.showLong("密码错误了！")
-//            return
-//        }
-
         vm.login(name, psw).observe(this, {
             if (it?.data?.isOk() == true) {
                 AppDataManager.inst.token = it.data?.token ?: ""
@@ -92,6 +79,5 @@ class SplashAct : AppBaseAct<ActSplashBinding, SplashVm>() {
             }
         })
     }
-
 
 }

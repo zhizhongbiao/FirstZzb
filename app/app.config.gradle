@@ -1,0 +1,85 @@
+android{
+
+    //配置keystore签名
+    signingConfigs {
+        debug {
+            storeFile file("../keystore/screen_speak_master.jks")
+            storePassword 'ybs123456@@'
+            keyAlias 'ybs'
+            keyPassword 'ybs123456@@'
+        }
+
+        release {
+            storeFile file("../keystore/screen_speak_master.jks")
+            storePassword "ybs123456@@"
+            keyAlias "ybs"
+            keyPassword "ybs123456@@"
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 命令打包改名字
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (outputFileName.endsWith('.apk')) {
+                def fileName
+                if (variant.buildType.name == "release") {
+                    // 输出apk名称为
+                    fileName = "release_${variant.versionName}.apk"
+                    outputFileName = fileName
+                }
+            }
+
+        }
+    }
+
+
+    flavorDimensions("abi")
+    productFlavors{
+
+        //开发环境
+        dev {
+            dimension "abi"
+            manifestPlaceholders = [APP_NAME: "盘点_DEV"]
+        }
+
+        // 测试环境
+        beta {
+            dimension "abi"
+             manifestPlaceholders = [APP_NAME: "盘点_BETA"]
+
+        }
+
+        // 生产环境
+        produce {
+            dimension "abi"
+            manifestPlaceholders = [APP_NAME: "盘点"]
+        }
+
+        // 本地环境
+        local {
+            dimension "abi"
+            manifestPlaceholders = [APP_NAME: "盘点_LOCAL"]
+        }
+
+    }
+
+}

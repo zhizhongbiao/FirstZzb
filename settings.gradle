@@ -1,0 +1,8 @@
+rootProject.name = "FirstZzb"
+include ':app'
+include ':resLib'
+include ':base'
+
+
+
+

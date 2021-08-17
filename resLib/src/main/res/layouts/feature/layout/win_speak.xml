@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:id="@+id/cl"
+    android:layout_gravity="bottom">
+
+
+    <TextView
+        android:id="@+id/tvMsg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#3D3F5A"
+        android:gravity="center_vertical"
+
+        android:paddingStart="112dp"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivSpeak"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/asr_animation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivCancelSpeak"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:scaleType="centerInside"-->
+<!--        android:src="@drawable/btn_packup"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

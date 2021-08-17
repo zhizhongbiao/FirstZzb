@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/transparent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_white">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:gravity="center"
+            android:text="请确定围裙的数量！"
+            android:textColor="#3A4258"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+
+            android:background="@color/lineBg"
+            app:layout_constraintBottom_toTopOf="@+id/tvSure"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+
+            android:background="@color/lineBg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCancel" />
+
+        <TextView
+            android:id="@+id/tvSure"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#3A4258"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#3A4258"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="130dp"
+            android:layout_height="75dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#3A4258"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <ImageView
+            android:id="@+id/ivCut"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_blue_l"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/tvCount"
+            app:layout_constraintTop_toTopOf="@+id/tvCount"
+            app:srcCompat="@mipmap/icon_cut" />
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/shape_blue_r"
+            android:scaleType="centerInside"
+            app:layout_constraintStart_toEndOf="@+id/tvCount"
+            app:layout_constraintTop_toTopOf="@+id/ivCut"
+            app:srcCompat="@mipmap/icon_add" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

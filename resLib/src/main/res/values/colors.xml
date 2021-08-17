@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="tabSelected">#4D77FA</color>
+    <color name="tabUnSelected">#FFFFFFFF</color>
+
+
+
+
+
+    <color name="colorPrimary">#292A39</color>//
+    <color name="colorPrimaryDark">#E45DBF</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorVice">#6C6C6C</color>
+    <color name="textColorRed">#D51717</color>
+    <color name="textColorHint">#999999</color>
+    <color name="appColor">#292A39</color>
+    <color name="appBackColor">#FCFBFC</color>
+    <color name="viewLineColor">#FEFEFE</color>
+    <!--APP公用的一些颜色-->
+    <color name="common_bg">#fff7f7f7</color>
+    <color name="common_text">@android:color/primary_text_light</color>
+    <color name="common_hint_text">@color/gray_AD</color>
+    <color name="divider_color">@color/gray_cc</color>
+    <color name="black_overlay">@color/black_alpha40</color>
+    <color name="common_title_bg">#569948</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="transparent_color">#00ffffff</color>
+    <color name="text_black_4d">#4d4d4d</color>
+    <color name="text_908f94">#908f94</color>
+    <color name="bg_999999">#999999</color>
+    <color name="bg_gray">#dedede</color>
+    <color name="text_color_404040">#404040</color>
+    <color name="color_map_grid_selected">#F9686D</color>
+    <color name="ac_transparent">#9000</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="white_10">#1affffff</color>
+    <color name="white_20">#33ffffff</color>
+    <color name="white_30">#4dffffff</color>
+    <color name="white_50">#7fffffff</color>
+    <color name="white_90">#E6FFFFFF</color>
+
+    <!--黑色-各种等级透明度-->
+    <color name="black">#ff000000</color>
+    <color name="bzl_black_0">#00000000</color>
+    <color name="black_alpha10">#1a000000</color>
+    <color name="black_alpha15">#26000000</color>
+    <color name="black_alpha20">#33000000</color>
+    <color name="black_alpha30">#4d000000</color>
+    <color name="black_alpha32">#52000000</color>
+    <color name="black_alpha40">#66000000</color>
+    <color name="black_alpha5">#0d000000</color>
+    <color name="black_alpha50">#80000000</color>
+    <color name="black_alpha54">#89000000</color>
+    <color name="black_alpha60">#99000000</color>
+    <color name="black_alpha80">#cc000000</color>
+
+    <!--灰色-各种等级透明度-->
+    <color name="gray_32">#ff323232</color>
+    <color name="gray_33">#ff333333</color>
+    <color name="gray_35">#ff353535</color>
+    <color name="gray_66">#ff666666</color>
+    <color name="gray_7f">#ff7f7f7f</color>
+    <color name="gray_80">#ff808080</color>
+    <color name="gray_88">#ff888888</color>
+    <color name="gray_8832">#88323232</color>
+    <color name="gray_AD">#ffadadad</color>
+    <color name="gray_C8">#ffc8c8c8</color>
+    <color name="gray_D5">#ffd5d5d5</color>
+    <color name="gray_E6">#ffe6e6e6</color>
+    <color name="gray_cc">#ffcccccc</color>
+    <color name="gray_d9">#ffd9d9d9</color>
+    <color name="gray_f0">#fff0f0f0</color>
+    <color name="gray_f2">#fff2f2f2</color>
+    <color name="gray_f3">#fff3f3f3</color>
+    <color name="gray_f4">#fff4f4f4</color>
+    <color name="gray_f6">#fff6f6f6</color>
+    <color name="gray_fc">#fffcfcfc</color>
+    <color name="gray_e0">#e0e0e0</color>
+
+
+
+    <!--沉浸式颜色-->
+    <color name="immersive_color">#4285F4</color>
+    <color name="dialog_bg_color">#ffffff</color>
+    <color name="toolbar_title_bg_color">#212121</color>
+
+    <!--统一列表背景色和页面背景 -->
+    <color name="list_bg">#fff</color>
+    <color name="page_bg">#FFFFFF</color>
+    <!--统一分割线-->
+    <color name="divide_gray_color">#F6F6F6</color>
+    <color name="common_label_tv_bg1">#b9b9b9</color>
+    <color name="duty_title_tv_bg">#4285F4</color>
+
+    <color name="common_title_tv_bg">#ff2b2b2b</color>  //统一左边标题
+    <color name="common_hint_tv_bg">#C1C0C9</color>   //hint
+    <color name="common_label_tv_bg">#222222</color>
+    <!--统一字体颜色 标题和内容-->
+    <color name="common_content_tv_bg">#222222</color>
+    <color name="common_gray_tv_bg">#909091</color>
+    <color name="common_gray_right_tv_bg">#666666</color>
+    <color name="common_red_point">#FC5771</color>
+
+
+
+    <color name="common_title_star_tv_bg">#9D000B</color>
+    <color name="common_listitem_tv_red_bg">#fc0909</color>
+    <color name="common_listitem_tv_blue_bg">#ff3889ff</color>
+
+    <color name="common_state_blue_color">#ff0486fe</color>
+    <color name="common_state_gray_color">#ffcccccc</color>
+
+
+    <!--shadowGradient-->
+    <color name="gradientColor1">#60000000</color>
+    <color name="gradientColor2">#40000000</color>
+    <color name="gradientColor3">#60000000</color>
+    <color name="gradientColor4">#50000000</color>
+    <color name="gradientColor5">#00000000</color>
+
+    <color name="snackbar_background">#80000000</color>
+    <color name="snackbar_content">#545454</color>
+    <!-- log -->
+    <color name="logEntry1">#303030</color>
+    <color name="logEntry2">#424242</color>
+
+    <!-- display cards -->
+    <color name="cardMainTitle">#151320</color>
+    <color name="cardSubTitle">#a9aba9</color>
+    <color name="cardTextField">#1d232b</color>
+    <color name="cardBackground">#ffffff</color>
+    <color name="cardDivider">#e1e1e1</color>
+    <color name="cardListItemIndex">#a9aba9</color>
+    <color name="cardListItemContent">#000000</color>
+    <color name="cardHighTemp">#151320</color>
+    <color name="cardLowTemp">#a9aba9</color>
+    <color name="cblCode">#02d0f9</color>
+    <color name="cblBackground">#1d232b</color>
+    <color name="cblText">#ffffff</color>
+
+    <color name="defaultMainTitle">#ffffff</color>
+    <color name="defaultTextField">#a9aba9</color>
+
+    <!-- drawer -->
+    <color name="drawerBackground">#303030</color>
+    <color name="drawerSection">#424242</color>
+    <color name="drawerSubsection">#515151</color>
+    <color name="drawerHeader">#fff5f5</color>
+    <color name="drawerButtonText">#fff5f5</color>
+    <color name="drawerButton1">#00695c</color>
+    <color name="drawerButton2">#004d40</color>
+    <color name="drawerTextStatus">#4db6ac</color>
+
+    <!-- playback controller -->
+    <color name="playbackControllerBackground">#212121</color>
+
+    <!--snackbar-->
+    <color name="dialogSnackbarBackground">#ffffff</color>
+
+    <!--playerInfo-->
+    <color name="mCardBackground">#000000</color>
+    <color name="mCardMainTitle">#ffffff</color>
+    <color name="mCardSubTitle">#a9aba9</color>
+
+    <color name="server_error">#ffc000</color>
+    <color name="server_finish"> #67C23A</color>
+    <color name="server_making"> #0486FE</color>
+
+    <color name="network_error">#d50000</color>
+
+    <!--alerts-->
+    <color name="alerts_item_background">#75FFFFFF</color>
+    <color name="alerts_text_color">#ffffff</color>
+    <color name="alerts_line_color">#cBc7cc</color>
+    <color name="alerts_delete_red">#ff3b30</color>
+    <color name="alert_text_color">#CCFFFFFF</color>
+    <color name="alert_item_background">#000000</color>
+
+    <!--news-->
+    <color name="news_item_background">#F6F6F6</color>
+    <color name="news_text_color">#333333</color>
+    <color name="news_mask_color">#80000000</color>
+    <color name="news_dividing_line_color">#a5cfe6</color>
+
+    <!--transparence color-->
+    <color name="transcolor5">#80000000</color>
+
+    <color name="weather_black_overlay">#66000000</color>
+    <color name="weather_thumb_color">@android:color/white</color>
+    <color name="weather_track_color">#66FFFFFF</color>
+    <color name="weather_white">#FFFFFF</color>
+    <color name="weather_line">#D5D5D5</color>
+    <color name="server_process_line">#4D4E5F</color>
+    <color name="server_process_item">#565771</color>
+
+
+</resources>

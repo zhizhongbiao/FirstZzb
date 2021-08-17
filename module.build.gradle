@@ -1,0 +1,37 @@
+android{
+
+
+    flavorDimensions("abi")
+    productFlavors{
+
+        //开发环境
+        dev {
+            dimension "abi"
+            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+
+
+        }
+
+        // 测试环境
+        beta {
+            dimension "abi"
+            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+
+        }
+
+        // 生产环境
+        produce {
+            dimension "abi"
+            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+
+        }
+
+        // 本地环境
+        local {
+            dimension "abi"
+            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+        }
+
+    }
+
+}

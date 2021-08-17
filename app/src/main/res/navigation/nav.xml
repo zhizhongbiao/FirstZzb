@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav"
+    app:startDestination="@id/blankFg">
+
+    <fragment
+        android:id="@+id/blankFg"
+        android:name="com.ybs.ssmaster.ui.main.BlankFg"
+        android:label="BlankFg" />
+    <fragment
+        android:id="@+id/QRCodeOrderFg"
+        android:name="com.ybs.ssmaster.ui.main.service.QRCodeOrderFg"
+        android:label="QRCodeOrderFg" />
+    <fragment
+        android:id="@+id/optionFg"
+        android:name="com.ybs.ssmaster.ui.main.service.OptionFg"
+        android:label="OptionFg" />
+    <fragment
+        android:id="@+id/fullImgFg"
+        android:name="com.ybs.ssmaster.ui.main.service.FullImgFg"
+        android:label="FullImgFg" />
+    <fragment
+        android:id="@+id/fullTextFg"
+        android:name="com.ybs.ssmaster.ui.main.service.FullTextFg"
+        android:label="FullTextFg" />
+    <fragment
+        android:id="@+id/standardFg"
+        android:name="com.ybs.ssmaster.ui.main.service.StandardFg"
+        android:label="StandardFg" />
+
+
+</navigation>

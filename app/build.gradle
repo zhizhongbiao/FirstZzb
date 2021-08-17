@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+}
+apply from: "../module.build.gradle"
+apply from: 'app.config.gradle'
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.ybs.ssmaster"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.compileOptions.sourceCompatibility
+        targetCompatibility rootProject.ext.compileOptions.targetCompatibility
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext.kotlinOptions.jvmTarget
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+
+}
+
+repositories {
+    flatDir {
+        dirs '../ads/libs','libs'  //将xxx替换为引入aar文件的module名
+    }
+}
+
+dependencies {
+    implementation project(path: ':base')
+    implementation project(path: ':resLib')
+
+
+    implementation "com.kongzue.dialog_v3:dialog:3.1.8"
+    implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+    implementation 'com.github.ideastudios:IdealRecorder:2.0.5'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+
+    implementation "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.1"
+    implementation "org.eclipse.paho:org.eclipse.paho.android.service:1.1.1"
+
+    implementation files('libs/xUtils-2.5.5.jar')
+//    compile files('libs/android-support-v4.jar')
+    implementation files('libs/jxl.jar')
+    implementation files('libs/cw-deviceapi20180918.jar')
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+
+
+
+//    implementation (name:'module-ybs-msc-debug',ext:'aar')
+
+}

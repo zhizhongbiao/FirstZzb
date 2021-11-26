@@ -1,6 +1,7 @@
 package com.ybs.base.data.repos
 
 import com.ybs.base.data.bean.counter.EndCountReq
+import com.ybs.base.data.bean.scan.ScanBean
 import com.ybs.base.http.request.repos.IRepos
 
 /**
@@ -49,8 +50,12 @@ interface MainRepos : IRepos {
         checkDate,
         checkOrderStatus
     )
+    suspend fun getAllRfRecords() = getService().getAllRfRecords()
 
     suspend fun endCount(
         id: String
     ) = getService().endCount(EndCountReq(id))
+
+
+    suspend fun postRfRecordItem(req: ScanBean) = getService().postRfRecordItem(req)
 }

@@ -6,11 +6,10 @@ import com.ybs.base.data.bean.QuerySpecialDishResp
 import com.ybs.base.data.bean.counter.CounterBean
 import com.ybs.base.data.bean.counter.EndCountBean
 import com.ybs.base.data.bean.counter.EndCountReq
+import com.ybs.base.data.bean.scan.ScanBean
+import com.ybs.base.data.bean.scan.UploadedBean
 import com.ybs.base.http.response.AppResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PUT
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  *
@@ -59,7 +58,14 @@ interface MainApi {
         @Query("checkNo") checkNo: String,
         @Query("checkDate") checkDate: String,
         @Query("checkOrderStatus") checkOrderStatus: String
-    ): CounterBean //商户ID
+    ): CounterBean
 
+
+    @GET("/notToken/other/runRecord/listAll")
+    suspend  fun getAllRfRecords(): MutableList<UploadedBean>
+
+
+    @POST("/notToken/other/runRecord")
+    suspend fun postRfRecordItem(@Body req: ScanBean): UploadedBean
 
 }

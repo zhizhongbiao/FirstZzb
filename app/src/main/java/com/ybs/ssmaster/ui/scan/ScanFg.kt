@@ -1,12 +1,16 @@
-package com.ybs.ssmaster.ui.count
+package com.ybs.ssmaster.ui.scan
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ybs.reslib.databinding.FgScanBinding
+import com.ybs.base.base.http.response.Status
+import com.ybs.base.data.bean.scan.ScanBean
+import com.ybs.reslib.databinding.FgNewScanBinding
 import com.ybs.ssmaster.ui.common.AppBaseFg
-import com.ybs.ssmaster.ui.main.counter.CountDetailAdapt
+import com.ybs.ssmaster.ui.count.CountAct
+import com.ybs.ssmaster.ui.count.CountVm
+
 import d
 
 /**
@@ -21,7 +25,7 @@ import d
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-class ScanFg : AppBaseFg<FgScanBinding, CountVm, CountAct>() {
+class ScanFg : AppBaseFg<FgNewScanBinding, CountVm, CountAct>() {
 
     override fun getVmClz() = CountVm::class.java
 
@@ -30,7 +34,7 @@ class ScanFg : AppBaseFg<FgScanBinding, CountVm, CountAct>() {
     }
 
     private val adapt by lazy {
-        CountDetailAdapt { _, _, data, _ ->
+        ScanAdapt { _, _, data, _ ->
             d("  data = $data")
         }
     }
@@ -39,7 +43,7 @@ class ScanFg : AppBaseFg<FgScanBinding, CountVm, CountAct>() {
     override fun getLayoutBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = FgScanBinding.inflate(inflater, container, false)
+    ) = FgNewScanBinding.inflate(inflater, container, false)
 
     override fun initView() {
         binding!!.rv.apply {
@@ -47,7 +51,12 @@ class ScanFg : AppBaseFg<FgScanBinding, CountVm, CountAct>() {
             adapter = adapt
         }
 
-        vm.scanList.observe(this, {
+        vm.scanBean.observe(this, {
+            checkIfExist(it)
+
+        })
+
+        vm.uploadedListList.observe(this,{
             binding?.tvScanNum?.text = "扫描总数：${it?.size}"
             adapt.updateAll(it)
         })
@@ -75,7 +84,16 @@ class ScanFg : AppBaseFg<FgScanBinding, CountVm, CountAct>() {
 
     }
 
-     fun handleBtnClick() {
+    private fun checkIfExist(it: ScanBean) {
+        it?.apply {
+            vm.getAllRfRecords().observe(this@ScanFg, {
+                if (it?.status==Status.SUCCESS)
+                vm.checkIfUploaded(this, it)
+            })
+        }
+    }
+
+    fun handleBtnClick() {
         if (vm.flag.value == true) {
             vm.stopScan()
         } else {

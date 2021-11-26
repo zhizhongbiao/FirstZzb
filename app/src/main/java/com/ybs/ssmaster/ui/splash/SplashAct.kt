@@ -53,10 +53,10 @@ class SplashAct : AppBaseAct<ActSplashBinding, SplashVm>() {
             login(n, getStr(KEY_PSW))
         }
         binding.btnLogin.setOnClickListener {
-            val name = binding.etName.text.toString()
-            val psw = binding.etPsw.text.toString()
-//            val name = "admin"
-//            val psw = "admin123"
+//            val name = binding.etName.text.toString()
+//            val psw = binding.etPsw.text.toString()
+            val name = "admin"
+            val psw = "admin123"
             if (TextUtils.isEmpty(name) || TextUtils.isEmpty(psw)) {
                 ToastUtils.showLong("请输入正确的用户名和密码！")
                 return@setOnClickListener

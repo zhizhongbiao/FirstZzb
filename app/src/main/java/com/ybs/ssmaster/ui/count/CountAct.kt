@@ -15,6 +15,7 @@ import com.ybs.reslib.databinding.ActCountBinding
 import com.ybs.ssmaster.ui.common.AppBaseAct
 import com.ybs.ssmaster.ui.main.MainVm
 import com.ybs.ssmaster.ui.main.counter.VpAdapt
+import com.ybs.ssmaster.ui.scan.ScanFg
 
 
 class CountAct : AppBaseAct<ActCountBinding, CountVm>() {

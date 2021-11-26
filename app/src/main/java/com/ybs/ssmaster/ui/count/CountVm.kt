@@ -5,6 +5,9 @@ import com.blankj.utilcode.util.ToastUtils
 import com.rscja.deviceapi.RFIDWithUHF
 import com.ybs.base.data.bean.counter.CheckDetail
 import com.ybs.base.data.bean.counter.CountRecordReq
+import com.ybs.base.data.bean.scan.ScanBean
+import com.ybs.base.data.bean.scan.UploadedBean
+import com.ybs.base.http.response.Resource
 import com.ybs.base.manager.TaskManger
 import com.ybs.ndklib.YbsSoundUtils
 import com.ybs.ssmaster.ui.common.AppVm
@@ -33,6 +36,9 @@ class CountVm : AppVm() {
     private val scanSet = mutableSetOf<CheckDetail>()
     val scanList = MutableLiveData<MutableList<CheckDetail>>(mutableListOf())
 
+    val uploadedListList = MutableLiveData<MutableList<UploadedBean>>(mutableListOf())
+    val scanBean = MutableLiveData<ScanBean>()
+
     fun getCountDetail(id: String) = baseRequest2 {
         val countDetail = repos.getCountDetail(id)
         if (countDetail.isOk()) {
@@ -46,6 +52,8 @@ class CountVm : AppVm() {
     fun postCountedRecord() = baseRequest2 {
         repos.postCountedRecord(req)
     }
+
+
 
     var hasReady = false
 
@@ -122,19 +130,19 @@ class CountVm : AppVm() {
     fun onScanData(info: String, code: String) {
         e("info =$info")
         val hexStringToString = YbsSoundUtils.hexStringToString(code).trim()
-
-        planList.find {
+        scanBean.postValue(ScanBean(hexStringToString,System.currentTimeMillis()))
+//        planList.find {
 //            val b = (it?.code?.trim() ?: "").equals(hexStringToString, true)
 //            compareInfo += "\nplanCode=[${it?.code}]  scanHexCode=[${hexStringToString}]  result = $b"
 //            b
-            it.hexCode == code
-        }?.apply {
-            scanSet.add(this)
-            scanList.postValue(scanSet.toMutableList())
-            if (!req.checkDetailId.contains(this.id) && checkStatus == "1") {
-                req.checkDetailId.add(this.id ?: -1)
-            }
-        }
+//            it.hexCode == code
+//        }?.apply {
+//            scanSet.add(this)
+//            scanList.postValue(scanSet.toMutableList())
+//            if (!req.checkDetailId.contains(this.id) && checkStatus == "1") {
+//                req.checkDetailId.add(this.id ?: -1)
+//            }
+//        }
 
         scanInfo.postValue(
             info +
@@ -161,11 +169,23 @@ class CountVm : AppVm() {
         req.checkId = id
     }
 
+    fun checkIfUploaded(scanBean: ScanBean, resource: Resource<MutableList<UploadedBean>>) {
+
+    }
+
 
     val req = CountRecordReq(mutableListOf(), "-1")
 
     val flag = MutableLiveData(false)
     val scanInfo = MutableLiveData("初始值")
 
+
+
+
+    fun getAllRfRecords() = baseRequest2 { repos.getAllRfRecords() }
+
+    fun postRfRecordItem(req: ScanBean) = baseRequest2 {
+        repos.postRfRecordItem(req)
+    }
 
 }

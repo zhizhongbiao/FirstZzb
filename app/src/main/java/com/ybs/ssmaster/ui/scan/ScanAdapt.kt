@@ -1,13 +1,12 @@
-package com.ybs.ssmaster.ui.main.counter
+package com.ybs.ssmaster.ui.scan
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ybs.base.adapter.BaseRvAdpt
 import com.ybs.base.adapter.BaseRvHolder
-
-import com.ybs.base.data.bean.counter.CountRecordReq
-import com.ybs.reslib.databinding.ItemScanBinding
+import com.ybs.base.data.bean.scan.UploadedBean
+import com.ybs.reslib.databinding.ItemNewScanBinding
 
 
 
@@ -26,38 +25,40 @@ import com.ybs.reslib.databinding.ItemScanBinding
 class ScanAdapt(private val onItemClickCb: ((
     v: View,
     adapter: ScanAdapt,
-    data: CountRecordReq,
+    data: UploadedBean,
     pos: Int
     ) -> Unit)? = null
 ) :
-    BaseRvAdpt<CountRecordReq, ItemScanBinding>() {
+    BaseRvAdpt<UploadedBean, ItemNewScanBinding>() {
 
     override fun getBinding(parent: ViewGroup, viewType: Int) =
-        ItemScanBinding.inflate(LayoutInflater.from(ctx), parent, false)
+        ItemNewScanBinding.inflate(LayoutInflater.from(ctx), parent, false)
 
     override fun onDataBind(
-        vh: BaseRvHolder<ItemScanBinding>,
-        data: CountRecordReq,
+        vh: BaseRvHolder<ItemNewScanBinding>,
+        data: UploadedBean,
         pos: Int,
         isSelected: Boolean
     ) {
         initClick(vh, pos)
 
-        vh.binding.tvName.text = data.checkId
-//        vh.binding.tvCode.text =data.checkAssetsId
-        vh.binding.tvLoc.text = ""
-        
-        vh.binding.tvNum.text = "${pos+1}"
+        vh.binding.tvName.text = data.username
+        vh.binding.tvCdTime.text = data.scanTime
+        vh.binding.tvTime.text = data.timeConsumingFormat
+        vh.binding.tvNo.text = data.id.toString()
+
+
 
 
     }
     
 
     private fun initClick(
-        vh: BaseRvHolder<ItemScanBinding>,
+        vh: BaseRvHolder<ItemNewScanBinding>,
         pos: Int
     ) {
-
+        vh.binding.ibDelete.tag = pos
+        vh.binding.ibDelete.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

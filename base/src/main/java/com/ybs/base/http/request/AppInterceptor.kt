@@ -58,10 +58,10 @@ class AppInterceptor : Interceptor {
                         "Content-Type", "application/json"
                     )
                     .addHeader("charset", "UTF-8")
-                    .header(
-                        "Authorization",
-                        accessToken ?: "token is null"
-                    )
+//                    .header(
+//                        "Authorization",
+//                        accessToken ?: "token is null"
+//                    )
                     .build()
 
                 chain.proceed(newRequest)

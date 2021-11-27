@@ -15,7 +15,7 @@
 
         <!--        <item name="windowActionBar">false</item>-->
         <!--        &lt;!&ndash; 使用 API Level 22以上编译的话，要拿掉前綴字 &ndash;&gt;-->
-        <item name="android:windowFullscreen">true</item>
+<!--        <item name="android:windowFullscreen">true</item>-->
         <!--        <item name="android:windowBackground">@null</item>-->
 
     </style>

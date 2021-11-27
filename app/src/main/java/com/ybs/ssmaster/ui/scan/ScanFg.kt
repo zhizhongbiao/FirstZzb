@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ybs.base.base.http.response.Status
+import com.ybs.base.data.bean.scan.Data
 import com.ybs.base.data.bean.scan.ScanBean
 import com.ybs.reslib.databinding.FgNewScanBinding
 import com.ybs.ssmaster.ui.common.AppBaseFg
 import com.ybs.ssmaster.ui.count.CountAct
 import com.ybs.ssmaster.ui.count.CountVm
-
 import d
 
 /**
@@ -36,7 +35,17 @@ class ScanFg : AppBaseFg<FgNewScanBinding, CountVm, CountAct>() {
     private val adapt by lazy {
         ScanAdapt { _, _, data, _ ->
             d("  data = $data")
+            handleItemDelete(data)
         }
+    }
+
+    private fun handleItemDelete(data: Data) {
+        vm.deleteRecord(data.id?:"没有返回ID").observe(this, {
+            if (it?.data?.isOk() == true) {
+//                adapt.remove(data)
+                refreshData()
+            }
+        })
     }
 
 
@@ -52,14 +61,21 @@ class ScanFg : AppBaseFg<FgNewScanBinding, CountVm, CountAct>() {
         }
 
         vm.scanBean.observe(this, {
-            checkIfExist(it)
-
+//            checkIfExist(it)
+            postItem(it)
         })
 
-        vm.uploadedListList.observe(this,{
-            binding?.tvScanNum?.text = "扫描总数：${it?.size}"
-            adapt.updateAll(it)
-        })
+//        vm.uploadedListList.observe(this, {
+//            binding?.tvScanNum?.text = "扫描总数：${it?.size}"
+//            adapt.updateAll(it)
+//        })
+
+
+//        vm.checkedScanBean.observe(this, {
+//            postItem(it)
+//        })
+
+        refreshData()
 
 
         binding?.btnScan?.setOnClickListener {
@@ -69,6 +85,7 @@ class ScanFg : AppBaseFg<FgNewScanBinding, CountVm, CountAct>() {
 
         vm.flag.observe(this, {
             binding?.btnScan?.text = if (it) "停止扫描" else "开始扫描"
+            binding?.pb?.visibility=if (it) View.VISIBLE else View.GONE
         })
 
 
@@ -84,14 +101,40 @@ class ScanFg : AppBaseFg<FgNewScanBinding, CountVm, CountAct>() {
 
     }
 
-    private fun checkIfExist(it: ScanBean) {
+    private fun refreshData() {
+        vm.getAllRfRecords().observe(this@ScanFg, {
+            if (it?.data?.isOk() == true) {
+
+                adapt.updateAll(it?.data?.data ?: mutableListOf())
+                binding?.tvScanNum?.text = "记录扫描总数：${it?.data?.data?.size?:0}"
+            }
+        })
+    }
+
+    private fun postItem(it: ScanBean) {
         it?.apply {
-            vm.getAllRfRecords().observe(this@ScanFg, {
-                if (it?.status==Status.SUCCESS)
-                vm.checkIfUploaded(this, it)
+            vm.postRfRecordItem(this).observe(this@ScanFg, {
+                if (it?.data?.isOk()==true) {
+                    it.data?.apply {
+//                        adapt.addHead()
+//                        adapt.updateAll(it?.data?.data?: mutableListOf())
+                        refreshData()
+                    }
+                }
             })
         }
     }
+
+    private fun checkIfExist(it: ScanBean) {
+        it?.apply {
+            vm.getAllRfRecords().observe(this@ScanFg, {
+                if (it?.data?.isOk()==true) {
+                    vm.checkIfUploaded(this, it.data!!.data)
+                }
+            })
+        }
+    }
+
 
     fun handleBtnClick() {
         if (vm.flag.value == true) {

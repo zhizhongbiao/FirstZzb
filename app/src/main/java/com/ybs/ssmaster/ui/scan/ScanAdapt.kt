@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.ybs.base.adapter.BaseRvAdpt
 import com.ybs.base.adapter.BaseRvHolder
-import com.ybs.base.data.bean.scan.UploadedBean
+import com.ybs.base.data.bean.scan.Data
 import com.ybs.reslib.databinding.ItemNewScanBinding
 
 
@@ -25,18 +25,18 @@ import com.ybs.reslib.databinding.ItemNewScanBinding
 class ScanAdapt(private val onItemClickCb: ((
     v: View,
     adapter: ScanAdapt,
-    data: UploadedBean,
+    data: Data,
     pos: Int
     ) -> Unit)? = null
 ) :
-    BaseRvAdpt<UploadedBean, ItemNewScanBinding>() {
+    BaseRvAdpt<Data, ItemNewScanBinding>() {
 
     override fun getBinding(parent: ViewGroup, viewType: Int) =
         ItemNewScanBinding.inflate(LayoutInflater.from(ctx), parent, false)
 
     override fun onDataBind(
         vh: BaseRvHolder<ItemNewScanBinding>,
-        data: UploadedBean,
+        data: Data,
         pos: Int,
         isSelected: Boolean
     ) {
@@ -45,10 +45,7 @@ class ScanAdapt(private val onItemClickCb: ((
         vh.binding.tvName.text = data.username
         vh.binding.tvCdTime.text = data.scanTime
         vh.binding.tvTime.text = data.timeConsumingFormat
-        vh.binding.tvNo.text = data.id.toString()
-
-
-
+        vh.binding.tvNo.text = data.rfid.toString()
 
     }
     

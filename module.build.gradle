@@ -7,7 +7,7 @@ android{
         //开发环境
         dev {
             dimension "abi"
-            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+            buildConfigField "String", "BASE_URL", "\"http://121.4.68.92:18023/\""
 
 
         }
@@ -15,21 +15,22 @@ android{
         // 测试环境
         beta {
             dimension "abi"
-            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+            buildConfigField "String", "BASE_URL", "\"http://121.4.68.92:18023/\""
+//            buildConfigField "String", "BASE_URL", "\"https://nhkg.nsp.cn/\""
 
         }
 
         // 生产环境
         produce {
             dimension "abi"
-            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+            buildConfigField "String", "BASE_URL", "\"https://nhkg.nsp.cn/\""
 
         }
 
         // 本地环境
         local {
             dimension "abi"
-            buildConfigField "String", "BASE_URL", "\"https://ctxz.nsp.cn/\""
+            buildConfigField "String", "BASE_URL", "\"http://121.4.68.92:18023/\""
         }
 
     }

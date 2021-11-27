@@ -58,26 +58,26 @@ android{
         //开发环境
         dev {
             dimension "abi"
-            manifestPlaceholders = [APP_NAME: "盘点_DEV"]
+            manifestPlaceholders = [APP_NAME: "南控计时_DEV"]
         }
 
         // 测试环境
         beta {
             dimension "abi"
-             manifestPlaceholders = [APP_NAME: "盘点_BETA"]
+             manifestPlaceholders = [APP_NAME: "南控计时_BETA"]
 
         }
 
         // 生产环境
         produce {
             dimension "abi"
-            manifestPlaceholders = [APP_NAME: "盘点"]
+            manifestPlaceholders = [APP_NAME: "南控计时"]
         }
 
         // 本地环境
         local {
             dimension "abi"
-            manifestPlaceholders = [APP_NAME: "盘点_LOCAL"]
+            manifestPlaceholders = [APP_NAME: "南控计时_LOCAL"]
         }
 
     }

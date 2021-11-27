@@ -6,8 +6,9 @@ import com.ybs.base.data.bean.QuerySpecialDishResp
 import com.ybs.base.data.bean.counter.CounterBean
 import com.ybs.base.data.bean.counter.EndCountBean
 import com.ybs.base.data.bean.counter.EndCountReq
+import com.ybs.base.data.bean.scan.DeleteBean
+import com.ybs.base.data.bean.scan.RecordBean
 import com.ybs.base.data.bean.scan.ScanBean
-import com.ybs.base.data.bean.scan.UploadedBean
 import com.ybs.base.http.response.AppResponse
 import retrofit2.http.*
 
@@ -28,10 +29,10 @@ interface MainApi {
 
     @GET("/api/yuanyuan/device/specialdish/list")
     suspend fun getAllFoodList(@Query("merchantId") merchantId: String)
-    : AppResponse<MutableList<QuerySpecialDishResp>>
+            : AppResponse<MutableList<QuerySpecialDishResp>>
 
     @GET("/api/restaurant/ypsQueryTableDishesProcess")
-    suspend  fun requestFoodProcess(
+    suspend fun requestFoodProcess(
         @Query("merchantId") merchantId: String,
         @Query("deviceSn") deviceSn: String
     ): AppResponse<String>
@@ -39,20 +40,20 @@ interface MainApi {
     //获取广告轮播
     @GET("/api/yuanyuan/device/carousel/listByMerchantId")
     suspend fun queryAdvertisement(@Query("merchantId") merchantId: String)
-    : AppResponse<MutableList<QueryCarouselResp>>
+            : AppResponse<MutableList<QueryCarouselResp>>
 
     @GET("/api/yuanyuan/device/foodService/list")
-    suspend  fun queryRestaurantService(@Query("merchantId") merchantId: String)
-    : AppResponse<MutableList<QueryRestaurantCommResp>> //商户ID
+    suspend fun queryRestaurantService(@Query("merchantId") merchantId: String)
+            : AppResponse<MutableList<QueryRestaurantCommResp>> //商户ID
 
 
     //提任务
 
     @PUT("/town/api/ass/endCheck")
-    suspend  fun endCount(@Body req: EndCountReq): EndCountBean
+    suspend fun endCount(@Body req: EndCountReq): EndCountBean
 
     @GET("/town/api/ass/list")
-    suspend  fun getCountedData(
+    suspend fun getCountedData(
         @Query("checkYear") checkYear: String,
         @Query("checkPerson") checkPerson: String,
         @Query("checkNo") checkNo: String,
@@ -61,11 +62,15 @@ interface MainApi {
     ): CounterBean
 
 
-    @GET("/notToken/other/runRecord/listAll")
-    suspend  fun getAllRfRecords(): MutableList<UploadedBean>
+//    @DELETE("")
+    @HTTP(method = "DELETE", path = "/nhkg/notToken/other/runRecord/{id}", hasBody = false)
+    suspend fun deleteRecord(@Path("id") id: String): DeleteBean
+
+    @GET("/nhkg/notToken/other/runRecord/listAll")
+    suspend fun getAllRfRecords(): RecordBean
 
 
-    @POST("/notToken/other/runRecord")
-    suspend fun postRfRecordItem(@Body req: ScanBean): UploadedBean
+    @POST("/nhkg/notToken/other/runRecord")
+    suspend fun postRfRecordItem(@Body req: ScanBean): RecordBean
 
 }

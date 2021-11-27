@@ -27,7 +27,7 @@
         android:id="@+id/tvNo"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.5"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="号码"
         android:textColor="@color/black"
@@ -59,11 +59,15 @@
         android:id="@+id/tvLoc"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="2.5"
         android:gravity="center"
         android:text="冲点时间"
         android:textColor="@color/black"
         android:textSize="18dp" />
+
+    <View
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"/>
 
 
 

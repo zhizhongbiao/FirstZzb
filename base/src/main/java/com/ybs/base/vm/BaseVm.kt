@@ -111,7 +111,7 @@ open class BaseVm : ViewModel() {
             } catch (ex: Exception) {
                 e("exp = ${ex.message}")
                 emit(Resource.error(ex.message ?: "", data = null))
-                ToastUtils.showLong("ex.message  = ${ex.message}   ")
+//                ToastUtils.showLong("ex.message  = ${ex.message}   ")
             } finally {
                 decCounter()
             }

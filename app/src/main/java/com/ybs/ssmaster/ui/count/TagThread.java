@@ -14,6 +14,7 @@ import com.ybs.base.util.Loger;
  * @Version: 1.0
  */
 public class TagThread extends Thread {
+
     private CountVm vm;
 
     public volatile boolean tFlag=false;

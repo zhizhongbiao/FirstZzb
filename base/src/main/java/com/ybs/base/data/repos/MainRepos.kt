@@ -50,7 +50,7 @@ interface MainRepos : IRepos {
         checkDate,
         checkOrderStatus
     )
-    suspend fun getAllRfRecords() = getService().getAllRfRecords()
+
 
     suspend fun endCount(
         id: String
@@ -58,4 +58,8 @@ interface MainRepos : IRepos {
 
 
     suspend fun postRfRecordItem(req: ScanBean) = getService().postRfRecordItem(req)
+
+    suspend fun getAllRfRecords() = getService().getAllRfRecords()
+
+    suspend fun deleteRecord(id: String) = getService().deleteRecord(id)
 }

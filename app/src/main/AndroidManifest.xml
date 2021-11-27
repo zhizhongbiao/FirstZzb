@@ -22,7 +22,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".ui.splash.SplashAct"
+            android:name=".ui.count.CountAct"
             android:launchMode="singleTask"
             android:theme="@style/SplashActTheme">
             <intent-filter>
@@ -35,7 +35,7 @@
             android:name=".ui.main.MainAct"
            />
 
-        <activity android:name=".ui.count.CountAct"/>
+<!--        <activity android:name=".ui.count.CountAct"/>-->
         <activity android:name=".ui.count.CountDetailAct"/>
 
         <meta-data
